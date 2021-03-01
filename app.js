@@ -20,7 +20,6 @@ const itemsSchema = {
 
 const Item = mongoose.model("Item", itemsSchema);
 
-
 const item1 = new Item({
   name: "Welcome to your todolist!"
 });
@@ -42,9 +41,7 @@ const listSchema = {
 
 const List = mongoose.model("List", listSchema);
 
-
 app.get("/", function(req, res) {
-
   Item.find({}, function(err, foundItems){
 
     if (foundItems.length === 0) {
@@ -60,7 +57,6 @@ app.get("/", function(req, res) {
       res.render("list", {listTitle: "Today", newListItems: foundItems});
     }
   });
-
 });
 
 app.get("/:customListName", function(req, res){
@@ -83,9 +79,6 @@ app.get("/:customListName", function(req, res){
       }
     }
   });
-
-
-
 });
 
 app.post("/", function(req, res){
@@ -127,8 +120,6 @@ app.post("/delete", function(req, res){
       }
     });
   }
-
-
 });
 
 app.get("/about", function(req, res){
